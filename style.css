@@ -1,0 +1,58 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: gray;
+}
+body {
+  padding: 5%;
+}
+
+
+
+table {
+  width: 100%;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-collapse: collapse;
+  margin-bottom:1em;
+}
+
+  th, td {
+    padding: 0.5em 1em;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    white-space: pre;
+  }
+  
+  thead th,
+  tbody td {
+    text-align: center;
+  }
+  
+
+  thead {
+    color: white;
+    background: #0cf;
+  }
+    
+    th {
+      padding: 1px;
+    }
+
+    
+    
+  &[data-comparing="active"] tbody th {
+    border-bottom: none;
+    font-size: 0.75em;
+    color: #767676;
+    padding-bottom: 0;
+  }
+
+
+  
+}
+
