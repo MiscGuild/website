@@ -321,19 +321,26 @@ console.log(":)")
         background-color: transparent !important;
         padding: auto;
         margin: auto;
+      }
+
+        @media(max-width:767px) {
+        .statistic {
+         text-align: center;
+  
+}
         
       }
       </style>
       <div class="header">
-        <input class="stat text-center " readonly id="glvl" name="glvl"></input> 
+        <input class="stat text-center statistic" readonly id="glvl" name="glvl"></input> 
         <p>Guild Level</p>
         <br>
         <div class="header">
-          <input class="stat text-center " readonly id="gmembers" name="gmembers"></input> 
+          <input class="stat text-center statistic" readonly id="gmembers" name="gmembers"></input> 
           <p>Guild Members</p>
         <br>
         <div class="header">
-          <input class="stat text-center" readonly id="exp" name="exp"></input> 
+          <input class="stat text-center statistic" readonly id="exp" name="exp"></input> 
           <p>Total Exp</p>
         <br>
 
