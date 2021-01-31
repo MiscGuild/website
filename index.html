@@ -16,6 +16,8 @@
   <script defer src="script.js"></script>
   <script defer src="navbar.js"></script>
 
+<script src="jqery-min.js"></script>
+
 
 
 <body class="text-gray-800 antialiased">
@@ -274,17 +276,58 @@ right:0;
       <h1 class="text-white font-semibold text-5xl text-center">
         Miscellaneous Guild Stats
       </h1>
+      
+      <script type="text/javascript" src="https://api.slothpixel.me/api/guilds/ElijahRus"></script>
+
+      <script>
+
+console.log("Getting Guild Information....")
+console.log(":-/ waiting...")
+$.getJSON("https://api.slothpixel.me/api/guilds/ElijahRus", function(json) {
+  const level = json.level
+    console.log("Guild Level " + json.level); 
+    console.log("Total Members " + json.members.length); 
+    console.log("Total Exp " + json.exp); 
+  
+
+    document.getElementById("glvl").value = json.level;
+    document.getElementById("gmembers").value = json.members.length;
+
+var badexp = json.exp
+var exp = badexp.toLocaleString()
+
+console.log("Converting exp to include commas...")
+
+console.log("Converted exp with commas " + exp)
+
+console.log(":)")
+
+    document.getElementById("exp").value = exp;
+
+}
+);
+      </script>
+      <style>
+      .stat{
+        background-color: transparent !important;
+        padding: auto;
+        margin: auto;
+        
+      }
+      </style>
       <div class="header">
-        <div class="counter" data-target="124">0</div>
+        <input class="stat text-center" readonly id="glvl" name="glvl"></input> 
         <p>Guild Level</p>
         <br>
-        <div class="counter" data-target="28">0</div>
-        <p>Guild Rank</p>
+        <div class="header">
+          <input class="stat text-center" readonly id="gmembers" name="gmembers"></input> 
+          <p>Guild Members</p>
+        <br>
+        <div class="header">
+          <input class="stat text-center" readonly id="exp" name="exp"></input> 
+          <p>Total Exp</p>
         <br>
 
-        <div class="counter" data-target="377">0</div>
-        <p>Discord Members</p>
-        <br>
       </div>
 
 <style>   
@@ -295,7 +338,7 @@ right:0;
     color: white;
     font-size: 30px;
   }
-  `
+  
   .content {padding:20px;}
   </style>
             
