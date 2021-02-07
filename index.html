@@ -75,6 +75,26 @@
     </div>
   </nav>
   <main>
+    <script>
+      jQuery($ => {
+        const speed = 1000;
+    
+        $('a[href*="#"]')
+          .filter((i, a) => a.getAttribute('href').startsWith('#') || a.href.startsWith(`${location.href}#`))
+          .unbind('click.smoothScroll')
+          .bind('click.smoothScroll', event => {
+            const targetId = event.currentTarget.getAttribute('href').split('#')[1];
+            const targetElement = document.getElementById(targetId);
+    
+            if (targetElement) {
+              event.preventDefault();
+              $('html, body').animate({ scrollTop: $(targetElement).offset().top }, speed);
+            }
+          });
+      });
+    </script>
+
+
     <div class="relative pt-16 pb-32 flex content-center items-center justify-center" style="min-height: 75vh;">
 
       <div class="absolute top-0 w-full h-full bg-cover bg-center bg-no-repeat"
@@ -341,8 +361,10 @@ console.log(":)")
         @media(max-width:767px) {
         .statistic {
          text-align: center;
+         
   
 }
+
         
       }
       </style>
