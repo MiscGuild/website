@@ -26,17 +26,9 @@
 <script>
 
 $(document).ready(function(){
-    // to fade in on page load
     $("body").css("display", "none");
     $("body").fadeIn(400); 
-    // to fade out before redirect
-    $('a').click(function(e){
-        redirect = $(this).attr('href');
-        e.preventDefault();
-        $('body').fadeOut(400, function(){
-            document.location.href = redirect
-        });
-    });
+
 })
 
 </script>
@@ -130,7 +122,8 @@ $(document).ready(function(){
                 A Hypixel Guild for the best of the best
               </p> 
               <br>
-              <a class="button button-1 " href="#aboutus"  >About Us</a>
+              
+              <a href="#aboutus" class="button-1"><button>About us!</button></a>
  
               <br>
               
