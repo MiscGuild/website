@@ -18,8 +18,26 @@
   <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script defer src="script.js"></script>
   <script defer src="navbar.js"></script>
+  <script src="jqery-min.js"></script>
 
+  
+  <script>
 
+    $(document).ready(function(){
+        // to fade in on page load
+        $("body").css("display", "none");
+        $("body").fadeIn(400); 
+        // to fade out before redirect
+        $('a').click(function(e){
+            redirect = $(this).attr('href');
+            e.preventDefault();
+            $('body').fadeOut(400, function(){
+                document.location.href = redirect
+            });
+        });
+    })
+    
+    </script>
 
 <body class="text-gray-800 antialiased">
 

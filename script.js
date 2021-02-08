@@ -33,3 +33,4 @@ counters.forEach(counter => {
 
   updateCount();
 });
+
