@@ -1,32 +1,39 @@
-import { GetServerSidePropsContext } from "next";
-import { useState } from "react";
+import { GetServerSidePropsContext, NextPage } from "next";
 import { AppProps } from "next/app";
-import Head from "next/head";
-import { MantineProvider, ColorScheme, ColorSchemeProvider } from "@mantine/core";
+import NextHead from "next/head";
+import { Layout } from "../components/Layout/Layout";
+import favicon from "../public/favicon.svg";
 
-export default function App(props: AppProps & { colorScheme: ColorScheme }) {
-	const { Component, pageProps } = props;
-	const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme);
-
-	const toggleColorScheme = (value?: ColorScheme) => {
-		const nextColorScheme = value || (colorScheme === "dark" ? "light" : "dark");
-		setColorScheme(nextColorScheme);
-		// setCookies("mantine-color-scheme", nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
+export default function App({ Component, pageProps }: AppPropsWithMeta) {
+	const meta = {
+		title: "",
+		description: "",
+		image: "./",
+		type: "website",
+		...Component.customSeo,
 	};
 
 	return (
 		<>
-			<Head>
-				<title>Mantine next example</title>
-				<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-				<link rel="shortcut icon" href="/favicon.svg" />
-			</Head>
+			<NextHead>
+				<title>{meta.title}</title>
+				<link rel="shortcut icon" href={favicon.src} />
 
-			<ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-				<MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
-					<Component {...pageProps} />
-				</MantineProvider>
-			</ColorSchemeProvider>
+				<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+				<meta name="robots" content="index,follow" />
+				<meta name="keywords" content="" />
+				<meta name="description" content={meta.description} />
+
+				<meta property="og:site_name" content="" />
+				<meta property="og:title" content={meta.title} />
+				<meta property="og:description" content={meta.description} />
+				<meta property="og:type" content={meta.type} />
+				<meta property="og:image" content={meta.image} />
+			</NextHead>
+
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
 		</>
 	);
 }
@@ -34,3 +41,16 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
 App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
 	// colorScheme: getCookie("mantine-color-scheme", ctx) || "light",
 });
+
+export type NextPageWithMeta = NextPage & {
+	customSeo?: {
+		title: string;
+		description: string;
+		image: string;
+		type: string;
+	};
+};
+
+type AppPropsWithMeta = AppProps & {
+	Component: NextPageWithMeta;
+};
