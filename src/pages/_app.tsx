@@ -1,4 +1,4 @@
-import { GetServerSidePropsContext, NextPage } from "next";
+import { NextPage } from "next";
 import { AppProps } from "next/app";
 import NextHead from "next/head";
 import { Layout } from "../components/Layout/Layout";
@@ -37,10 +37,6 @@ export default function App({ Component, pageProps }: AppPropsWithMeta) {
 		</>
 	);
 }
-
-App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
-	// colorScheme: getCookie("mantine-color-scheme", ctx) || "light",
-});
 
 export type NextPageWithMeta = NextPage & {
 	customSeo?: {
