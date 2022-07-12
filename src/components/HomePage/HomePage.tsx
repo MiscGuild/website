@@ -1,6 +1,6 @@
 import React from "react";
-import { NextPageWithMeta } from "../../pages/_app";
+import { PageProps } from "../../pages/_app";
 
-export const HomePage: NextPageWithMeta = () => {
+export const HomePage: PageProps = () => {
 	return <></>;
 };

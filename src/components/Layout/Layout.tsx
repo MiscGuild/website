@@ -1,10 +1,11 @@
 import React from "react";
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from "@mantine/core";
 import { useLocalStorageValue, useHotkeys } from "@mantine/hooks";
+import { Header } from "./Header/Header";
 
 const THEME_KEY = "mantine-color-scheme";
 
-export function Layout({ children }: LayoutProps) {
+export function Layout({ children, noMarginals }: LayoutProps) {
 	const [colorScheme, setColorScheme] = useLocalStorageValue<ColorScheme>({
 		key: THEME_KEY,
 		defaultValue: "dark",
@@ -13,11 +14,12 @@ export function Layout({ children }: LayoutProps) {
 	const toggleColorScheme = (value?: ColorScheme) =>
 		setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
-	useHotkeys([["mod+J", () => toggleColorScheme()]]);
+	useHotkeys([["mod + shift + L", () => toggleColorScheme()]]);
 
 	return (
 		<ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
 			<MantineProvider theme={{ colorScheme }} withNormalizeCSS withGlobalStyles>
+				{!noMarginals && <Header />}
 				<main>{children}</main>
 			</MantineProvider>
 		</ColorSchemeProvider>
@@ -26,4 +28,5 @@ export function Layout({ children }: LayoutProps) {
 
 interface LayoutProps {
 	children?: React.ReactNode;
+	noMarginals?: boolean;
 }

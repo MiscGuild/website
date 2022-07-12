@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { AppProps } from "next/app";
-import NextHead from "next/head";
+import Head from "next/head";
 import { Layout } from "../components/Layout/Layout";
 import favicon from "../public/favicon.svg";
 
@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppPropsWithMeta) {
 
 	return (
 		<>
-			<NextHead>
+			<Head>
 				<title>{meta.title}</title>
 				<link rel="shortcut icon" href={favicon.src} />
 
@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }: AppPropsWithMeta) {
 				<meta property="og:description" content={meta.description} />
 				<meta property="og:type" content={meta.type} />
 				<meta property="og:image" content={meta.image} />
-			</NextHead>
+			</Head>
 
 			<Layout>
 				<Component {...pageProps} />
@@ -38,7 +38,8 @@ export default function App({ Component, pageProps }: AppPropsWithMeta) {
 	);
 }
 
-export type NextPageWithMeta = NextPage & {
+export type PageProps = NextPage & {
+	noMarginals?: boolean;
 	customSeo?: {
 		title: string;
 		description: string;
@@ -48,5 +49,5 @@ export type NextPageWithMeta = NextPage & {
 };
 
 type AppPropsWithMeta = AppProps & {
-	Component: NextPageWithMeta;
+	Component: PageProps;
 };
