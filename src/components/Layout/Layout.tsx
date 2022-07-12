@@ -3,6 +3,7 @@ import { MantineProvider, ColorScheme, ColorSchemeProvider } from "@mantine/core
 import { useLocalStorageValue, useHotkeys } from "@mantine/hooks";
 import { Header } from "./Header/Header";
 import { Footer } from "./Footer/Footer";
+import { HEADER_HEIGHT } from "./Header/Header.styles";
 
 const THEME_KEY = "mantine-color-scheme";
 
@@ -21,7 +22,7 @@ export function Layout({ children, noMarginals }: LayoutProps) {
 		<ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
 			<MantineProvider theme={{ colorScheme }} withNormalizeCSS withGlobalStyles>
 				{!noMarginals && <Header />}
-				<main>{children}</main>
+				<main style={{ paddingTop: !noMarginals ? HEADER_HEIGHT : 0 }}>{children}</main>
 				{!noMarginals && <Footer />}
 			</MantineProvider>
 		</ColorSchemeProvider>
