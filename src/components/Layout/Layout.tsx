@@ -20,7 +20,7 @@ export function Layout({ children, noMarginals }: LayoutProps) {
 
 	return (
 		<ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-			<MantineProvider theme={{ colorScheme }} withNormalizeCSS withGlobalStyles>
+			<MantineProvider theme={{ colorScheme, primaryColor: "grape" }} withNormalizeCSS withGlobalStyles>
 				{!noMarginals && <Header />}
 				<main style={{ paddingTop: !noMarginals ? HEADER_HEIGHT : 0 }}>{children}</main>
 				{!noMarginals && <Footer />}

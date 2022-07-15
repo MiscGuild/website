@@ -4,7 +4,7 @@ import Head from "next/head";
 import { Layout } from "../components/Layout/Layout";
 import favicon from "../public/favicon.svg";
 
-export default function App({ Component, pageProps }: AppPropsWithMeta) {
+export default function App({ Component, pageProps }: CustomPageProps) {
 	const meta = {
 		title: "Miscellaneous",
 		description: "Miscellaneous - a welcoming, friendly, and active Hypixel guild for the best of the best.",
@@ -48,6 +48,6 @@ export type PageProps = NextPage & {
 	};
 };
 
-type AppPropsWithMeta = AppProps & {
+type CustomPageProps = AppProps & {
 	Component: PageProps;
 };
