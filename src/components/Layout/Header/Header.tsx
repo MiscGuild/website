@@ -1,8 +1,9 @@
-import { Group } from "@mantine/core";
 import React from "react";
+import { Group } from "@mantine/core";
 import { ColorSchemeToggle } from "./Buttons/ColorSchemeToggle/ColorSchemeToggle";
 import { Discord } from "./Buttons/Discord/Discord";
 import { GitHub } from "./Buttons/GitHub/GitHub";
+import { PageLinks } from "./PageLinks/PageLinks";
 import useStyles from "./Header.styles";
 
 export function Header() {
@@ -10,6 +11,8 @@ export function Header() {
 
 	return (
 		<header className={classes.header}>
+			<PageLinks />
+
 			<Group spacing={8}>
 				<Discord />
 				<GitHub />

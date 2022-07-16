@@ -5,6 +5,10 @@ export const HEADER_HEIGHT = 60;
 export default createStyles((theme) => ({
 	header: {
 		position: "fixed",
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "space-between",
+		padding: "0 16px 0 16px",
 		zIndex: 10000,
 		top: 0,
 		left: 0,
