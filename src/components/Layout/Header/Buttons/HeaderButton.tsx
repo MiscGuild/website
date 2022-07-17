@@ -1,17 +1,46 @@
-import { UnstyledButton, UnstyledButtonProps } from "@mantine/core";
+import { Text, Tooltip, UnstyledButton } from "@mantine/core";
 import { IconType } from "react-icons/lib";
+import { MouseEventHandler } from "react";
 import useStyles from "./HeaderButton.styles";
 
-export function HeaderButton({ Icon, ...buttonProps }: Props) {
+export function HeaderButton(props: AnchorProps | ButtonProps) {
 	const { classes } = useStyles();
 
 	return (
-		<UnstyledButton className={classes.wrapper} {...buttonProps}>
-			<Icon size={22} />
-		</UnstyledButton>
+		<Tooltip label={props.tooltipLabel} openDelay={300} tooltipId={props.tooltipLabel}>
+			{props.buttonStyle === "button" ? (
+				<UnstyledButton
+					aria-describedby={props.tooltipLabel}
+					className={classes.wrapper}
+					onClick={props.onClick}>
+					<props.Icon size={22} />
+				</UnstyledButton>
+			) : (
+				<Text
+					aria-describedby={props.tooltipLabel}
+					className={classes.wrapper}
+					component="a"
+					href={props.href}
+					target="_blank"
+					rel="noreferrer">
+					<props.Icon size={22} />
+				</Text>
+			)}
+		</Tooltip>
 	);
 }
 
-type Props = UnstyledButtonProps<"button"> & {
+type GenericProps = {
 	Icon: IconType;
+	tooltipLabel: string;
+};
+
+type AnchorProps = GenericProps & {
+	buttonStyle: "anchor";
+	href: string;
+};
+
+type ButtonProps = GenericProps & {
+	buttonStyle: "button";
+	onClick: MouseEventHandler;
 };
