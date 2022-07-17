@@ -1,7 +1,7 @@
-import { NextPage } from "next";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import { Layout } from "../components/Layout/Layout";
+import { NextPage } from "next";
 import favicon from "../public/favicon.svg";
 
 export default function App({ Component, pageProps }: CustomAppProps) {

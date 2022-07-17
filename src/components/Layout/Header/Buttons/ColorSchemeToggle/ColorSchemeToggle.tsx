@@ -1,7 +1,6 @@
-import React from "react";
-import { useMantineColorScheme } from "@mantine/core";
-import { TbSun, TbMoonStars } from "react-icons/tb";
+import { TbMoonStars, TbSun } from "react-icons/tb";
 import { HeaderButton } from "../HeaderButton";
+import { useMantineColorScheme } from "@mantine/core";
 
 export function ColorSchemeToggle() {
 	const { colorScheme, toggleColorScheme } = useMantineColorScheme();

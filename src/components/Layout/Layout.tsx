@@ -1,9 +1,8 @@
-import React from "react";
-import { MantineProvider, ColorScheme, ColorSchemeProvider } from "@mantine/core";
-import { useLocalStorageValue, useHotkeys } from "@mantine/hooks";
-import { Header } from "./Header/Header";
+import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import { useHotkeys, useLocalStorageValue } from "@mantine/hooks";
 import { Footer } from "./Footer/Footer";
 import { HEADER_HEIGHT } from "./Header/Header.styles";
+import { Header } from "./Header/Header";
 
 const THEME_KEY = "mantine-color-scheme";
 

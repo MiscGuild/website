@@ -1,16 +1,55 @@
 {
-	"extends": ["next/core-web-vitals", "mantine", "plugin:@next/next/recommended"],
-	"plugins": ["testing-library", "jest"],
-	"overrides": [
-		{
-			"files": ["**/?(*.)+(spec|test).[jt]s?(x)"],
-			"extends": ["plugin:testing-library/react"]
-		}
+	"extends": [
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"next/core-web-vitals",
+		"plugin:@next/next/recommended"
 	],
+	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
+		"ecmaVersion": 2021,
+		"sourceType": "module",
 		"project": "./tsconfig.json"
 	},
+	"plugins": ["@typescript-eslint"],
 	"rules": {
-		"react/react-in-jsx-scope": "off"
+		"brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+		"comma-dangle": ["error", "only-multiline"],
+		"comma-spacing": "error",
+		"comma-style": "error",
+		"dot-location": ["error", "property"],
+		"handle-callback-err": "off",
+		"indent": ["error", "tab", { "SwitchCase": 1 }],
+		"max-nested-callbacks": ["error", { "max": 4 }],
+		"max-statements-per-line": ["error", { "max": 2 }],
+		"no-console": "off",
+		"no-empty-function": "error",
+		"no-floating-decimal": "error",
+		"no-lonely-if": "error",
+		"no-multi-spaces": "error",
+		"no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1, "maxBOF": 0 }],
+		"no-shadow": ["error", { "allow": ["err", "resolve", "reject"] }],
+		"no-trailing-spaces": ["error", { "skipBlankLines": true, "ignoreComments": true }],
+		"no-var": "error",
+		"object-curly-spacing": ["error", "always"],
+		"prefer-const": "error",
+		"quotes": "error",
+		"react/react-in-jsx-scope": "off",
+		"semi": "error",
+		"sort-imports": "warn",
+		"space-before-blocks": "error",
+		"space-before-function-paren": [
+			"error",
+			{
+				"anonymous": "never",
+				"named": "never",
+				"asyncArrow": "always"
+			}
+		],
+		"space-in-parens": "error",
+		"space-infix-ops": "error",
+		"space-unary-ops": "error",
+		"spaced-comment": ["error", "always", { "block": { "balanced": true } }],
+		"yoda": "error"
 	}
 }

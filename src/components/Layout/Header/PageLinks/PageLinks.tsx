@@ -1,4 +1,3 @@
-import React from "react";
 import { Group, Text } from "@mantine/core";
 import Link from "next/link";
 import data from "./data";
@@ -9,15 +8,13 @@ export function PageLinks() {
 
 	return (
 		<Group spacing={32}>
-			{data.map(({ label, href }, index) => {
-				return (
-					<Link key={index} href={href} passHref>
-						<Text component="a" className={classes.link}>
-							{label}
-						</Text>
-					</Link>
-				);
-			})}
+			{data.map(({ label, href }, index) => (
+				<Link key={index} href={href} passHref>
+					<Text component="a" className={classes.link}>
+						{label}
+					</Text>
+				</Link>
+			))}
 		</Group>
 	);
 }

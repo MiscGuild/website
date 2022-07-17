@@ -1,4 +1,3 @@
-import React from "react";
 import { UnstyledButton, UnstyledButtonProps } from "@mantine/core";
 import { IconType } from "react-icons/lib";
 import useStyles from "./HeaderButton.styles";

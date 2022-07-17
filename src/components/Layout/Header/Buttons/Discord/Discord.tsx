@@ -1,4 +1,3 @@
-import React from "react";
 import { FaDiscord } from "react-icons/fa";
 import { HeaderButton } from "../HeaderButton";
 

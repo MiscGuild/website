@@ -1,8 +1,7 @@
-import React from "react";
-import { Group } from "@mantine/core";
 import { ColorSchemeToggle } from "./Buttons/ColorSchemeToggle/ColorSchemeToggle";
 import { Discord } from "./Buttons/Discord/Discord";
 import { GitHub } from "./Buttons/GitHub/GitHub";
+import { Group } from "@mantine/core";
 import { PageLinks } from "./PageLinks/PageLinks";
 import useStyles from "./Header.styles";
 
