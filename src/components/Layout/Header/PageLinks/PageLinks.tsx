@@ -1,6 +1,7 @@
 import React from "react";
 import { Group, Text } from "@mantine/core";
 import Link from "next/link";
+import data from "./data";
 import useStyles from "./PageLinks.styles";
 
 export function PageLinks() {
@@ -8,7 +9,7 @@ export function PageLinks() {
 
 	return (
 		<Group spacing={32}>
-			{pages.map(({ label, href }, index) => {
+			{data.map(({ label, href }, index) => {
 				return (
 					<Link key={index} href={href} passHref>
 						<Text component="a" className={classes.link}>
@@ -19,20 +20,4 @@ export function PageLinks() {
 			})}
 		</Group>
 	);
-}
-
-const pages: PageLink[] = [
-	{
-		label: "Home",
-		href: "/",
-	},
-	{
-		label: "About Us",
-		href: "/about",
-	},
-];
-
-interface PageLink {
-	label: string;
-	href: string;
 }
