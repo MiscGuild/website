@@ -1,5 +1,7 @@
 import { PageProps } from "../../pages/_app";
 
-export const HomePage: PageProps = () => {
+const HomePage: PageProps = () => {
 	return null;
 };
+
+export { HomePage };

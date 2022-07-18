@@ -16,7 +16,11 @@ export default function App(props: CustomAppProps) {
 	};
 
 	return (
-		<Layout colorScheme={colorScheme} noMarginals={Component.noMarginals} toggleColorScheme={toggleColorScheme}>
+		<Layout
+			colorScheme={colorScheme}
+			customSeo={Component.customSeo}
+			noMarginals={Component.noMarginals}
+			toggleColorScheme={toggleColorScheme}>
 			<Component {...pageProps} />
 		</Layout>
 	);
@@ -28,7 +32,7 @@ App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
 
 export type PageProps = NextPage & {
 	noMarginals?: boolean;
-	customSeo?: CustomSeo;
+	customSeo?: Partial<CustomSeo>;
 };
 
 export type CustomSeo = {
