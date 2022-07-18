@@ -30,12 +30,14 @@ App.getInitialProps = ({ ctx }: { ctx: GetServerSidePropsContext }) => ({
 	colorScheme: getCookie("mantine-color-scheme", ctx) || "dark",
 });
 
-export type PageProps = NextPage & {
-	noMarginals?: boolean;
+export type PageProps = NextPage & PartialPageProps;
+
+export type PartialPageProps = {
 	customSeo?: Partial<CustomSeo>;
+	noMarginals?: boolean;
 };
 
-export type CustomSeo = {
+type CustomSeo = {
 	title: string;
 	description: string;
 	image: string;

@@ -1,13 +1,13 @@
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
-import { CustomSeo } from "../../pages/_app";
 import { Footer } from "./Footer/Footer";
 import { HEADER_HEIGHT } from "./Header/Header.styles";
 import Head from "next/head";
 import { Header } from "./Header/Header";
+import { PartialPageProps } from "../../pages/_app";
 import React from "react";
 import favicon from "../../public/favicon.svg";
 
-export function Layout({ children, customSeo, colorScheme, noMarginals, toggleColorScheme }: LayoutProps) {
+export function Layout({ children, colorScheme, customSeo, noMarginals, toggleColorScheme }: LayoutProps) {
 	const meta = {
 		title: "Miscellaneous",
 		description: "Miscellaneous - a welcoming, friendly, and active Hypixel guild for the best of the best.",
@@ -45,10 +45,8 @@ export function Layout({ children, customSeo, colorScheme, noMarginals, toggleCo
 	);
 }
 
-type LayoutProps = {
-	children?: React.ReactNode;
-	customSeo?: CustomSeo;
+type LayoutProps = PartialPageProps & {
+	children: React.ReactNode;
 	colorScheme: ColorScheme;
-	noMarginals?: boolean;
 	toggleColorScheme: (colorScheme?: ColorScheme) => void;
 };
