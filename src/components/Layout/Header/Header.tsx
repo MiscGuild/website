@@ -25,7 +25,7 @@ export function Header() {
 					/>
 				</Tooltip>
 
-				<Group spacing={6}>
+				<Group spacing={5}>
 					{data.map(({ label, href }, index) => (
 						<Link href={href} key={index} passHref>
 							<Text className={classes.link} component="a">

@@ -26,6 +26,7 @@ export default createStyles((theme) => ({
 	link: {
 		borderRadius: 8,
 		padding: "6px 9px",
+		fontSize: theme.fontSizes.sm,
 
 		"&:hover": {
 			backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[1],

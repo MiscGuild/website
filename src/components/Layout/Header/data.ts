@@ -7,6 +7,10 @@ export default [
 		label: "About Us",
 		href: "/about",
 	},
+	{
+		label: "Join",
+		href: "/join",
+	},
 ] as NavLink[];
 
 interface NavLink {
