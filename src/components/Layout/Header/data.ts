@@ -7,9 +7,9 @@ export default [
 		label: "About Us",
 		href: "/about",
 	},
-] as PageLink[];
+] as NavLink[];
 
-interface PageLink {
+interface NavLink {
 	label: string;
 	href: string;
 }

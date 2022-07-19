@@ -1,3 +1,4 @@
+import { HEADER_BREAKPOINT } from "../Header.styles";
 import { createStyles } from "@mantine/core";
 
 export default createStyles((theme) => ({
@@ -13,7 +14,7 @@ export default createStyles((theme) => ({
 	},
 
 	removeOnMobile: {
-		[theme.fn.smallerThan("sm")]: {
+		[theme.fn.smallerThan(HEADER_BREAKPOINT)]: {
 			display: "none",
 		},
 	},

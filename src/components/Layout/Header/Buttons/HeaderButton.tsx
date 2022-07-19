@@ -3,6 +3,8 @@ import { IconType } from "react-icons/lib";
 import { MouseEventHandler } from "react";
 import useStyles from "./HeaderButton.styles";
 
+export const HEADER_BUTTON_SIZE = 22;
+
 export function HeaderButton(props: AnchorProps | ButtonProps) {
 	const { classes } = useStyles();
 	const className = `${classes.wrapper} ${props.removeOnMobile ? classes.removeOnMobile : ""}`;
@@ -11,7 +13,7 @@ export function HeaderButton(props: AnchorProps | ButtonProps) {
 		<Tooltip label={props.tooltipLabel} openDelay={300} tooltipId={props.tooltipLabel}>
 			{props.buttonStyle === "button" ? (
 				<UnstyledButton aria-describedby={props.tooltipLabel} className={className} onClick={props.onClick}>
-					<props.Icon size={22} />
+					<props.Icon size={HEADER_BUTTON_SIZE} />
 				</UnstyledButton>
 			) : (
 				<Text
