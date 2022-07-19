@@ -8,6 +8,7 @@ export function GitHub() {
 			href="https://github.com/MiscGuild"
 			Icon={FaGithub}
 			tooltipLabel="GitHub"
+			removeOnMobile
 		/>
 	);
 }

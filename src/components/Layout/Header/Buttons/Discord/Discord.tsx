@@ -8,6 +8,7 @@ export function Discord() {
 			href="https://discord.com/invite/bHFWukp"
 			Icon={FaDiscord}
 			tooltipLabel="Discord"
+			removeOnMobile
 		/>
 	);
 }

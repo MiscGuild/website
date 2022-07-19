@@ -5,20 +5,18 @@ import useStyles from "./HeaderButton.styles";
 
 export function HeaderButton(props: AnchorProps | ButtonProps) {
 	const { classes } = useStyles();
+	const className = `${classes.wrapper} ${props.removeOnMobile ? classes.removeOnMobile : ""}`;
 
 	return (
 		<Tooltip label={props.tooltipLabel} openDelay={300} tooltipId={props.tooltipLabel}>
 			{props.buttonStyle === "button" ? (
-				<UnstyledButton
-					aria-describedby={props.tooltipLabel}
-					className={classes.wrapper}
-					onClick={props.onClick}>
+				<UnstyledButton aria-describedby={props.tooltipLabel} className={className} onClick={props.onClick}>
 					<props.Icon size={22} />
 				</UnstyledButton>
 			) : (
 				<Text
 					aria-describedby={props.tooltipLabel}
-					className={classes.wrapper}
+					className={className}
 					component="a"
 					href={props.href}
 					target="_blank"
@@ -31,6 +29,7 @@ export function HeaderButton(props: AnchorProps | ButtonProps) {
 }
 
 type GenericProps = {
+	removeOnMobile?: boolean;
 	Icon: IconType;
 	tooltipLabel: string;
 };

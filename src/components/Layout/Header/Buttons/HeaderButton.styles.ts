@@ -11,4 +11,10 @@ export default createStyles((theme) => ({
 		backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.white,
 		border: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[4]}`,
 	},
+
+	removeOnMobile: {
+		[theme.fn.smallerThan("sm")]: {
+			display: "none",
+		},
+	},
 }));
