@@ -1,6 +1,5 @@
 import { TbMoonStars, TbSun } from "react-icons/tb";
 import { HeaderButton } from "../HeaderButton";
-import { upperFirst } from "@mantine/hooks";
 import { useMantineColorScheme } from "@mantine/core";
 
 export function ColorSchemeToggle() {
@@ -12,7 +11,7 @@ export function ColorSchemeToggle() {
 			buttonStyle="button"
 			Icon={Icon}
 			onClick={() => toggleColorScheme()}
-			tooltipLabel={`${upperFirst(colorScheme === "dark" ? "light" : "dark")} mode`}
+			tooltipLabel={`${colorScheme === "dark" ? "Light" : "Dark"} mode`}
 		/>
 	);
 }
