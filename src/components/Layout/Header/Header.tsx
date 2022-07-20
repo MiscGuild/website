@@ -40,7 +40,7 @@ export function Header() {
 					<Text className={classes.name}>Miscellaneous</Text>
 				</Center>
 
-				<Group position="right" spacing={8} noWrap>
+				<Group className={classes.buttons} position="right" spacing={8} noWrap>
 					<Discord />
 					<GitHub />
 					<ColorSchemeToggle />

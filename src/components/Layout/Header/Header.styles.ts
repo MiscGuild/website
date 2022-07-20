@@ -28,6 +28,10 @@ export default createStyles((theme) => ({
 		padding: "6px 9px",
 		fontSize: theme.fontSizes.sm,
 
+		[theme.fn.smallerThan(HEADER_BREAKPOINT)]: {
+			display: "none",
+		},
+
 		"&:hover": {
 			backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[1],
 		},
@@ -35,5 +39,12 @@ export default createStyles((theme) => ({
 
 	name: {
 		fontWeight: 800,
+	},
+
+	buttons: {
+		[theme.fn.smallerThan(HEADER_BREAKPOINT)]: {
+			width: "auto",
+			marginLeft: "auto",
+		},
 	},
 }));
